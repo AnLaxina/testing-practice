@@ -5,4 +5,15 @@ export function capitalize(stringToCapitalize) {
   return firstLetterCapitalized + wordAfterFirstLetter;
 }
 
-export function reverseString(stringToReverse) {}
+export function reverseString(stringToReverse) {
+  // This is the iterative way
+  //   let newString = "";
+  //   for (let i = stringToReverse.length - 1; i >= 0; i--) {
+  //     const char = stringToReverse[i];
+  //     newString += char;
+  //   }
+  //   return newString;
+
+  // But a more concise way is to just convert the string into an array, reverse it, then join it back again so it's a string
+  return stringToReverse.split("").reverse().join("");
+}
