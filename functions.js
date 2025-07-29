@@ -17,3 +17,20 @@ export function reverseString(stringToReverse) {
   // But a more concise way is to just convert the string into an array, reverse it, then join it back again so it's a string
   return stringToReverse.split("").reverse().join("");
 }
+
+export function caesarCipher(stringToShift, shiftFactor) {
+  const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz";
+  const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  return isLowerCase("a");
+}
+
+function isUpperCase(stringToCompare) {
+  const upperCaseString = stringToCompare.toUpperCase();
+  return stringToCompare === upperCaseString;
+}
+
+function isLowerCase(stringToCompare) {
+  const lowerCaseString = stringToCompare.toLowerCase();
+  return stringToCompare === lowerCaseString;
+}
