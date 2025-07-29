@@ -1,6 +1,8 @@
-export function capitalize(wordToCapitalize) {
-  const firstLetter = wordToCapitalize.charAt(0);
+export function capitalize(stringToCapitalize) {
+  const firstLetter = stringToCapitalize.charAt(0);
   const firstLetterCapitalized = firstLetter.toUpperCase();
-  const wordAfterFirstLetter = wordToCapitalize.slice(1);
+  const wordAfterFirstLetter = stringToCapitalize.slice(1);
   return firstLetterCapitalized + wordAfterFirstLetter;
 }
+
+export function reverseString(stringToReverse) {}
