@@ -1,13 +1,19 @@
 import { capitalize, reverseString, caesarCipher } from "./functions";
 
 test("capitalize", () => {
-  expect(capitalize("chicken")).toMatch("Chicken");
+  expect(capitalize("chicken")).toBe("Chicken");
 });
 
 test("Reverse a string", () => {
-  expect(reverseString("Chicken")).toMatch("nekcihC");
+  expect(reverseString("Chicken")).toBe("nekcihC");
 });
 
-test("Caesar Cipher Testing", () => {
-  expect(caesarCipher("XYZ", 3)).toBe("ABC");
+describe("Caesar Cipher", () => {
+  test("wrap around alphabet", () => {
+    expect(caesarCipher("xyz", 3)).toBe("abc");
+  });
+
+  test("retains case", () => {
+    expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+  });
 });
