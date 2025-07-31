@@ -60,5 +60,13 @@ export function analyzeArray(arrayOfNumbers) {
 
   analyzedObject.min = Math.min(...arrayOfNumbers);
   analyzedObject.max = Math.max(...arrayOfNumbers);
+  analyzedObject.length = arrayOfNumbers.length;
+
+  const sum = arrayOfNumbers.reduce(
+    (previousValue, currentValue) => previousValue + currentValue
+  );
+  const average = sum / arrayOfNumbers.length;
+  analyzedObject.average = average;
+
   return analyzedObject;
 }

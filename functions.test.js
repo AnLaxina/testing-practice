@@ -36,4 +36,12 @@ describe("Analyze Array", () => {
   test("max", () => {
     expect(analyzeArray(arrayToTest).max).toBe(8);
   });
+
+  test("length", () => {
+    expect(analyzeArray(arrayToTest).length).toBe(6);
+  });
+
+  test("average", () => {
+    expect(analyzeArray(arrayToTest).average).toBe(4);
+  });
 });
