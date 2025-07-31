@@ -28,10 +28,7 @@ export function caesarCipher(stringToShift, shiftFactor) {
 
   for (const letter of stringToShift) {
     if (isLowerCase(letter)) {
-      let shiftedIndex = lowerCaseCharacters.indexOf(letter) + shiftFactor;
-      if (shiftedIndex > lowerCaseCharacters.length - 1) {
-        shiftedIndex = 0;
-      }
+      const shiftedIndex = shiftIndex(letter, lowerCaseCharacters, shiftFactor);
       stringToReturn += lowerCaseCharacters[shiftedIndex];
     }
   }
@@ -47,4 +44,13 @@ function isUpperCase(stringToCompare) {
 function isLowerCase(stringToCompare) {
   const lowerCaseString = stringToCompare.toLowerCase();
   return stringToCompare === lowerCaseString;
+}
+
+function shiftIndex(letter, caseArray, shiftFactor) {
+  let shiftedIndex = caseArray.indexOf(letter) + shiftFactor;
+  if (shiftedIndex > caseArray.length - 1) {
+    shiftedIndex -= caseArray.length;
+  }
+
+  return shiftedIndex;
 }
