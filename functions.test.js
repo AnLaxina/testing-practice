@@ -9,5 +9,5 @@ test("Reverse a string", () => {
 });
 
 test("Caesar Cipher Testing", () => {
-  expect(caesarCipher("cool", 3)).toBe("dog");
+  expect(caesarCipher("hello", 3)).toBe("khoor");
 });

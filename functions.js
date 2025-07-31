@@ -19,10 +19,24 @@ export function reverseString(stringToReverse) {
 }
 
 export function caesarCipher(stringToShift, shiftFactor) {
-  const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz";
-  const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".split("");
+  const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  let stringToReturn = "";
+  // I decided to make these a Hash Set, so that it would be easy to find if they exist at O(1) operation
+  const lowerCaseCharactersSet = new Set(lowerCaseCharacters);
+  const upperCaseCharactersSet = new Set(upperCaseCharacters);
 
-  return isLowerCase("a");
+  for (const letter of stringToShift) {
+    if (isLowerCase(letter)) {
+      let shiftedIndex = lowerCaseCharacters.indexOf(letter) + shiftFactor;
+      if (shiftedIndex > lowerCaseCharacters.length - 1) {
+        shiftedIndex = 0;
+      }
+      stringToReturn += lowerCaseCharacters[shiftedIndex];
+    }
+  }
+
+  return stringToReturn;
 }
 
 function isUpperCase(stringToCompare) {
