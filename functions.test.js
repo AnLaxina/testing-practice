@@ -16,4 +16,8 @@ describe("Caesar Cipher", () => {
   test("retains case", () => {
     expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
   });
+
+  test("retains non-alphabetical characters", () => {
+    expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+  });
 });

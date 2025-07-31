@@ -22,17 +22,26 @@ export function caesarCipher(stringToShift, shiftFactor) {
   const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".split("");
   const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   let stringToReturn = "";
-  // I decided to make these a Hash Set, so that it would be easy to find if they exist at O(1) operation
-  const lowerCaseCharactersSet = new Set(lowerCaseCharacters);
-  const upperCaseCharactersSet = new Set(upperCaseCharacters);
 
-  for (const letter of stringToShift) {
-    if (isLowerCase(letter)) {
-      const shiftedIndex = shiftIndex(letter, lowerCaseCharacters, shiftFactor);
-      stringToReturn += lowerCaseCharacters[shiftedIndex];
-    } else if (isUpperCase(letter)) {
-      const shiftedIndex = shiftIndex(letter, upperCaseCharacters, shiftFactor);
-      stringToReturn += upperCaseCharacters[shiftedIndex];
+  for (const character of stringToShift) {
+    if (isLetter(character)) {
+      if (isLowerCase(character)) {
+        const shiftedIndex = shiftIndex(
+          character,
+          lowerCaseCharacters,
+          shiftFactor
+        );
+        stringToReturn += lowerCaseCharacters[shiftedIndex];
+      } else if (isUpperCase(character)) {
+        const shiftedIndex = shiftIndex(
+          character,
+          upperCaseCharacters,
+          shiftFactor
+        );
+        stringToReturn += upperCaseCharacters[shiftedIndex];
+      }
+    } else {
+      stringToReturn += character;
     }
   }
 
@@ -56,4 +65,8 @@ function shiftIndex(letter, caseArray, shiftFactor) {
   }
 
   return shiftedIndex;
+}
+
+function isLetter(char) {
+  return char.length === 1 && /[a-zA-Z]/.test(char);
 }
