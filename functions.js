@@ -30,6 +30,9 @@ export function caesarCipher(stringToShift, shiftFactor) {
     if (isLowerCase(letter)) {
       const shiftedIndex = shiftIndex(letter, lowerCaseCharacters, shiftFactor);
       stringToReturn += lowerCaseCharacters[shiftedIndex];
+    } else if (isUpperCase(letter)) {
+      const shiftedIndex = shiftIndex(letter, upperCaseCharacters, shiftFactor);
+      stringToReturn += upperCaseCharacters[shiftedIndex];
     }
   }
 
