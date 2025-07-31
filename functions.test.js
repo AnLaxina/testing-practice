@@ -1,4 +1,9 @@
-import { capitalize, reverseString, caesarCipher } from "./functions";
+import {
+  capitalize,
+  reverseString,
+  caesarCipher,
+  analyzeArray,
+} from "./functions";
 
 test("capitalize", () => {
   expect(capitalize("chicken")).toBe("Chicken");
@@ -19,5 +24,16 @@ describe("Caesar Cipher", () => {
 
   test("retains non-alphabetical characters", () => {
     expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+  });
+});
+
+describe("Analyze Array", () => {
+  const arrayToTest = [1, 8, 3, 4, 2, 6];
+  test("min", () => {
+    expect(analyzeArray(arrayToTest).min).toBe(1);
+  });
+
+  test("max", () => {
+    expect(analyzeArray(arrayToTest).max).toBe(8);
   });
 });

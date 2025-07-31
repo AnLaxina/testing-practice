@@ -49,3 +49,16 @@ export function caesarCipher(stringToShift, shiftFactor) {
 
   return shiftedString;
 }
+
+export function analyzeArray(arrayOfNumbers) {
+  const analyzedObject = {
+    average: undefined,
+    min: undefined,
+    max: undefined,
+    length: undefined,
+  };
+
+  analyzedObject.min = Math.min(...arrayOfNumbers);
+  analyzedObject.max = Math.max(...arrayOfNumbers);
+  return analyzedObject;
+}
