@@ -1,3 +1,5 @@
+import { isLetter, isLowerCase, isUpperCase, shiftIndex } from "./stringUtils";
+
 export function capitalize(stringToCapitalize) {
   const firstLetter = stringToCapitalize.charAt(0);
   const firstLetterCapitalized = firstLetter.toUpperCase();
@@ -21,7 +23,7 @@ export function reverseString(stringToReverse) {
 export function caesarCipher(stringToShift, shiftFactor) {
   const lowerCaseCharacters = "abcdefghijklmnopqrstuvwxyz".split("");
   const upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  let stringToReturn = "";
+  let shiftedString = "";
 
   for (const character of stringToShift) {
     if (isLetter(character)) {
@@ -31,42 +33,19 @@ export function caesarCipher(stringToShift, shiftFactor) {
           lowerCaseCharacters,
           shiftFactor
         );
-        stringToReturn += lowerCaseCharacters[shiftedIndex];
+        shiftedString += lowerCaseCharacters[shiftedIndex];
       } else if (isUpperCase(character)) {
         const shiftedIndex = shiftIndex(
           character,
           upperCaseCharacters,
           shiftFactor
         );
-        stringToReturn += upperCaseCharacters[shiftedIndex];
+        shiftedString += upperCaseCharacters[shiftedIndex];
       }
     } else {
-      stringToReturn += character;
+      shiftedString += character;
     }
   }
 
-  return stringToReturn;
-}
-
-function isUpperCase(stringToCompare) {
-  const upperCaseString = stringToCompare.toUpperCase();
-  return stringToCompare === upperCaseString;
-}
-
-function isLowerCase(stringToCompare) {
-  const lowerCaseString = stringToCompare.toLowerCase();
-  return stringToCompare === lowerCaseString;
-}
-
-function shiftIndex(letter, caseArray, shiftFactor) {
-  let shiftedIndex = caseArray.indexOf(letter) + shiftFactor;
-  if (shiftedIndex > caseArray.length - 1) {
-    shiftedIndex -= caseArray.length;
-  }
-
-  return shiftedIndex;
-}
-
-function isLetter(char) {
-  return char.length === 1 && /[a-zA-Z]/.test(char);
+  return shiftedString;
 }
